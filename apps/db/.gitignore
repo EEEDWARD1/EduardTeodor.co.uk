@@ -1,0 +1,8 @@
+# Local database data and backup output, never versioned migrations.
+/data/
+/backups/
+*.dump
+*.dump.gz
+*.backup
+
+# Keep .sql files trackable: schema changes belong in versioned SQL migrations.
