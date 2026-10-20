@@ -1,0 +1,28 @@
+# Terraform working directories, state, and saved plans may contain secrets.
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+!*.tfvars.json.example
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Commit .terraform.lock.hcl for reproducible provider versions.
+
+# Cloudflare Tunnel credentials (keep ingress config trackable)
+/cloudflared/*.json
+/cloudflared/cert.pem
+
+# Local Compose bind-mount data and backups; prefer named volumes.
+/compose/data/
+/compose/backups/
+/compose/secrets/
