@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -8,18 +9,9 @@ export const metadata: Metadata = {
 const linkClass =
   "font-medium text-neutral-900 underline decoration-neutral-400 underline-offset-4 transition-colors hover:decoration-current";
 
-const socialLinks = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/eduardteodor/",
-    Icon: LinkedInIcon,
-  },
-  { label: "GitHub", href: "https://github.com/EEEDWARD1", Icon: GitHubIcon },
-] as const;
-
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-6 py-24">
+    <main className="mx-auto max-w-2xl px-6 py-24 sm:py-32">
       <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
         Hi, I’m Ed.
       </h1>
@@ -58,19 +50,43 @@ export default function HomePage() {
           .
         </p>
       </div>
-      <ul className="mt-10 flex gap-3">
-        {socialLinks.map(({ label, href, Icon }) => (
-          <li key={label}>
-            <a
-              href={href}
-              className="inline-flex size-11 items-center justify-center rounded-lg border border-neutral-300 text-neutral-950 transition-colors hover:border-neutral-950 hover:bg-neutral-50"
-            >
-              <Icon className="size-6" />
-              <span className="sr-only">{label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <SocialLinks className="mt-10" />
+      <section aria-labelledby="projects-heading" className="mt-20">
+        <h2
+          id="projects-heading"
+          className="border-b border-neutral-300 pb-3 text-2xl font-semibold tracking-tight text-neutral-950"
+        >
+          Projects
+        </h2>
+
+        <ul className="mt-8 space-y-10">
+          {projects.map((project) => (
+            <li key={project.title}>
+              <h3 className="text-lg font-semibold">
+                <a href={project.href} className={linkClass}>
+                  {project.title}
+                </a>
+              </h3>
+              <p className="mt-2 leading-relaxed text-neutral-900">
+                {project.description}
+              </p>
+              <ul
+                aria-label="Technologies"
+                className="mt-3 flex flex-wrap gap-2"
+              >
+                {project.tech.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-md bg-neutral-100 px-2 py-0.5 text-sm text-neutral-900"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
