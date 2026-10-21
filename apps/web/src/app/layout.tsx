@@ -3,6 +3,8 @@ import { Geist } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
+import { CloudflareAnalytics } from "@/components/cloudflare-analytics";
+import { ANALYTICS_TOKEN } from "@/lib/analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="">
         {children}
         <SiteFooter />
+        <CloudflareAnalytics token={ANALYTICS_TOKEN} />
       </body>
     </html>
   );
