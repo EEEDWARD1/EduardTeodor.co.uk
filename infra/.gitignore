@@ -26,3 +26,10 @@ terraform.rc
 /compose/data/
 /compose/backups/
 /compose/secrets/
+
+
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+.env
