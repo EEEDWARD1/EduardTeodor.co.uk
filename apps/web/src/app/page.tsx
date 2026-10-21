@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { TextLink } from "@/components/text-link";
 import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
-
-const linkClass =
-  "font-medium text-neutral-900 underline decoration-neutral-400 underline-offset-4 transition-colors hover:decoration-current";
 
 export default function HomePage() {
   return (
@@ -20,9 +17,9 @@ export default function HomePage() {
         <p>
           I live in London, United Kingdom, and I am a recent First Class
           Computer Science graduate from{" "}
-          <a href="https://www.citystgeorges.ac.uk/" className={linkClass}>
+          <TextLink href="https://www.citystgeorges.ac.uk/">
             City St George’s, University of London
-          </a>
+          </TextLink>
           .
         </p>
 
@@ -33,24 +30,14 @@ export default function HomePage() {
 
         <p>
           Lately I’ve been enjoying{" "}
-          <a
-            href="https://dotnet.microsoft.com/en-us/apps/aspnet"
-            className={linkClass}
-          >
+          <TextLink href="https://dotnet.microsoft.com/en-us/apps/aspnet">
             ASP.NET Core
-          </a>
-          ,{" "}
-          <a href="https://nextjs.org/" className={linkClass}>
-            Next.js
-          </a>{" "}
-          and{" "}
-          <a href="https://www.python.org/" className={linkClass}>
-            Python
-          </a>
-          .
+          </TextLink>
+          , <TextLink href="https://nextjs.org/">Next.js</TextLink> and{" "}
+          <TextLink href="https://www.python.org/">Python</TextLink>.
         </p>
       </div>
-      <SocialLinks className="mt-10" />
+
       <section aria-labelledby="projects-heading" className="mt-20">
         <h2
           id="projects-heading"
@@ -63,9 +50,7 @@ export default function HomePage() {
           {projects.map((project) => (
             <li key={project.title}>
               <h3 className="text-lg font-semibold">
-                <a href={project.href} className={linkClass}>
-                  {project.title}
-                </a>
+                <TextLink href={project.href}>{project.title}</TextLink>
               </h3>
               <p className="mt-2 leading-relaxed text-neutral-900">
                 {project.description}
