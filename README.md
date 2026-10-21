@@ -33,7 +33,3 @@ apps/
 infra/       Docker Compose, Terraform, and deployment configuration (planned)
 docs/        Architecture and project documentation (planned)
 ```
-
-All components live in this repository without Git submodules. Each app currently
-has its own tooling; there is no root-level package workspace or build command.
-
