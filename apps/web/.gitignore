@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#Test results
+test-results/
+playwright-report/
+
+# .wrangle ignore
+.wrangler/
