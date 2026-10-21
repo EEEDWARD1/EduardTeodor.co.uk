@@ -7,6 +7,7 @@ export function CloudflareAnalytics({ token }: { token: string | undefined }) {
     <Script
       src="https://static.cloudflareinsights.com/beacon.min.js"
       strategy="afterInteractive"
+      type="module"
       data-cf-beacon={JSON.stringify({ token })}
     />
   );
