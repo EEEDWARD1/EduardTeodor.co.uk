@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { TextLink } from "@/components/text-link";
 import { projects } from "@/content/projects";
+import { thoughts } from "@/content/thoughts";
+import { formatDate } from "@/lib/date";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -72,6 +74,34 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {thoughts.length > 0 && (
+        <section aria-labelledby="thoughts-heading" className="mt-20">
+          <h2
+            id="thoughts-heading"
+            className="border-b border-neutral-300 pb-3 text-2xl font-semibold tracking-tight text-neutral-950"
+          >
+            Thoughts
+          </h2>
+
+          <ul className="mt-8 space-y-4 text-lg">
+            {thoughts.map((thought) => (
+              <li
+                key={thought.href}
+                className="flex items-baseline justify-between gap-6"
+              >
+                <TextLink href={thought.href}>{thought.title}</TextLink>
+                <time
+                  dateTime={thought.publishedAt}
+                  className="shrink-0 text-sm text-neutral-600 tabular-nums"
+                >
+                  {formatDate(thought.publishedAt)}
+                </time>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }
