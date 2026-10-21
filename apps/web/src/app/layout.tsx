@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
+import { SiteFooter } from "@/components/site-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-GB" className={geistSans.variable}>
-      <body className="">{children}</body>
+      <body className="">
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
