@@ -12,9 +12,6 @@
 
 # testing
 /coverage
-/playwright-report/
-/test-results/
-/blob-report/
 
 # next.js
 /.next/
@@ -33,14 +30,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Local environment values are ignored at the repository root.
-# Keep sanitized examples trackable.
-!.env.example
-!.env.*.example
-
-# Cloudflare local state and generated output
-/.wrangler/
-/.open-next/
+# env files (can opt-in for committing if needed)
+.env*
 
 # vercel
 .vercel
