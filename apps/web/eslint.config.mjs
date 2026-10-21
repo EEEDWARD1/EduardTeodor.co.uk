@@ -8,11 +8,13 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".wrangler/**",
+    "test-results/**",
+    "playwright-report/**",
   ]),
   // Must be last: turns off rules that conflict with Prettier.
   prettier,
