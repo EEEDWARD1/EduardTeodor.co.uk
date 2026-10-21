@@ -1,5 +1,26 @@
 import { expect, test } from "@playwright/test";
 
+test.beforeEach(async ({ page }) => {
+  await page.route("https://static.cloudflareinsights.com/**", (route) =>
+    route.abort(),
+  );
+});
+test("analytics script is present when a token is configured", async ({
+  page,
+}) => {
+  test.skip(
+    !process.env.CF_WEB_ANALYTICS_TOKEN,
+    "No analytics token in this build",
+  );
+
+  await page.goto("/");
+
+  await expect(
+    page.locator(
+      'script[src="https://static.cloudflareinsights.com/beacon.min.js"]',
+    ),
+  ).toHaveCount(1);
+});
 test("home page loads", async ({ page }) => {
   const response = await page.goto("/");
 
