@@ -14,8 +14,7 @@ export const metadata: Metadata = {
     default: "Eduard Teodor",
     template: "%s · Eduard Teodor",
   },
-  description:
-    "Software developer in London. First Class Computer Science graduate building client-first solutions with ASP.NET Core, Next.js and Python.",
+  description: "First Class Computer Science Graduate from London",
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -26,9 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-GB" className={geistSans.variable}>
-      <body className="bg-white font-sans text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100">
-        {children}
-      </body>
+      <body className="">{children}</body>
     </html>
   );
 }
