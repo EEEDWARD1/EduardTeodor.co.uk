@@ -33,3 +33,5 @@ terraform.rc
 *.tfstate.*
 crash.log
 .env
+
+tfplantfplan
