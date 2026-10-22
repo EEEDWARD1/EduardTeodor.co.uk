@@ -73,19 +73,6 @@ jobs:
         with:
           terraform_version: "1.14.0"
           terraform_wrapper: false
-      - name: Check credential format (temporary)
-        run: |
-          check() {
-            local name="$1" value="$2"
-            printf '%s: length %s, ' "$name" "${#value}"
-            if printf '%s' "$value" | LC_ALL=C grep -q '[^0-9a-f]'; then
-              echo "contains non-hex characters"
-            else
-              echo "hex only"
-            fi
-          }
-          check AWS_ACCESS_KEY_ID "$AWS_ACCESS_KEY_ID"
-          check AWS_SECRET_ACCESS_KEY "$AWS_SECRET_ACCESS_KEY"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
