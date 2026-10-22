@@ -34,4 +34,4 @@ terraform.rc
 crash.log
 .env
 
-tfplan
+tfplantfplan
