@@ -27,7 +27,7 @@ resource "github_repository_ruleset" "protect_main" {
     update                        = false
     update_allows_fetch_and_merge = false
     pull_request {
-      allowed_merge_methods             = ["merge"]
+      allowed_merge_methods             = ["squash"]
       dismiss_stale_reviews_on_push     = false
       require_code_owner_review         = false
       require_last_push_approval        = false
