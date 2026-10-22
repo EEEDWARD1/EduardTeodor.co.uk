@@ -3,9 +3,3 @@ variable "github_token" {
   type        = string
   sensitive   = true
 }
-
-variable "cloudflare_api_token" {
-  description = "Cloudflare token for Terraform, scoped per managed resource."
-  type        = string
-  sensitive   = true
-}
