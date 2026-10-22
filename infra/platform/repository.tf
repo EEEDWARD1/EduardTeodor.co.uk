@@ -1,37 +1,29 @@
-import {
-  to = github_repository.site
-  id = "EduardTeodor.co.uk"
-}
-
-import {
-  to = github_actions_variable.cf_web_analytics_token
-  id = "EduardTeodor.co.uk:CF_WEB_ANALYTICS_TOKEN"
-}
-
 resource "github_repository" "site" {
-  name       = "EduardTeodor.co.uk"
-  visibility = "public"
+  name         = "EduardTeodor.co.uk"
+  description  = "Personal site and portfolio: Next.js on Cloudflare Workers, deployed by GitHub Actions, infrastructure in Terraform."
+  homepage_url = "https://dev.eduardteodor.co.uk"
+  visibility   = "public"
+  topics       = ["nextjs", "typescript", "cloudflare-workers", "terraform", "github-actions", "portfolio"]
 
-  allow_merge_commit          = true
-  allow_rebase_merge          = true
+  allow_merge_commit          = false
+  allow_rebase_merge          = false
   allow_squash_merge          = true
   allow_auto_merge            = false
   allow_update_branch         = false
   delete_branch_on_merge      = true
-  merge_commit_title          = "MERGE_MESSAGE"
-  merge_commit_message        = "PR_TITLE"
-  squash_merge_commit_title   = "COMMIT_OR_PR_TITLE"
+  squash_merge_commit_title   = "PR_TITLE"
   squash_merge_commit_message = "COMMIT_MESSAGES"
 
   has_issues      = true
-  has_projects    = true
-  has_wiki        = true
+  has_projects    = false
+  has_wiki        = false
   has_discussions = false
 
   archived                    = false
   is_template                 = false
-  topics                      = []
   web_commit_signoff_required = false
+  vulnerability_alerts        = true
+  archive_on_destroy          = true
 
   security_and_analysis {
     secret_scanning {
